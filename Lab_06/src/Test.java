@@ -4,6 +4,7 @@ import actividad2.*;
 import actividad3.*;
 import ejercicio1.*;
 import ejercicio2.*;
+import ejercicio3.*;
 
 public class Test {
     public static void main(String[] args) {
@@ -301,5 +302,38 @@ public class Test {
 
         // Verifica si la cola está vacía
         System.out.println("¿La cola de enteros está vacía?: " + colaEnteros2.isEmpty());
+        System.out.println("\n");
+        
+        /*PRIORIDAD DE COLA ENLAZADA (PriorityQueueLinked)*/
+        System.out.println("===================================PRIORITYQUEUELINKED===================================");
+
+        // Crear objetos PriorityQueueLinked de diferentes tipos usando la interfaz PriorityQueue
+        PriorityQueue<Integer, Integer> priorityQueue1 = new PriorityQueueLinked<>(3); // Para enteros con 3 prioridades
+        PriorityQueue<String, Integer> priorityQueue2 = new PriorityQueueLinked<>(2); // Para cadenas con 2 prioridades
+        
+        try {
+            // Probar operaciones con enteros
+            priorityQueue1.enqueue(10, 1); // Insertar 10 en la prioridad 1
+            priorityQueue1.enqueue(20, 0); // Insertar 20 en la prioridad 0
+            priorityQueue1.enqueue(30, 2); // Insertar 30 en la prioridad 2
+
+            System.out.println("Dequeued from priorityQueue1: " + priorityQueue1.dequeue()); // Debe devolver 20 (prioridad 0)
+            System.out.println("Front from priorityQueue1: " + priorityQueue1.front()); // Debe devolver 10 (prioridad 1)
+
+            // Probar operaciones con cadenas
+            priorityQueue2.enqueue("Task A", 1); // Insertar "Task A" en la prioridad 1
+            priorityQueue2.enqueue("Task B", 0); // Insertar "Task B" en la prioridad 0
+
+            System.out.println("Dequeued from priorityQueue2: " + priorityQueue2.dequeue()); // Debe devolver "Task B" (prioridad 0)
+            System.out.println("Front from priorityQueue2: " + priorityQueue2.front()); // Debe devolver "Task A" (prioridad 1)
+
+            // Verificar si las colas están vacías
+            System.out.println("Is priorityQueue1 empty? " + priorityQueue1.isEmpty()); // Debe devolver false
+            System.out.println("Is priorityQueue2 empty? " + priorityQueue2.isEmpty()); // Debe devolver false
+
+        } catch (ExceptionIsEmpty e) {
+            // Manejo de la excepción si las colas están vacías
+            System.out.println("Exception: " + e.getMessage());
+        }
     }   
 }
