@@ -8,4 +8,5 @@ public class ExceptionIsEmpty extends Exception{
     public ExceptionIsEmpty(String mensaje){
         super(mensaje); //Constructor que va a mostrar del mensaje
     }
+    
 }

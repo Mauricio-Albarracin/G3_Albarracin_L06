@@ -2,7 +2,8 @@
 import actividad1.*;
 import actividad2.*;
 import actividad3.*;
-import ejercicio1.StackLink;
+import ejercicio1.*;
+import ejercicio2.*;
 
 public class Test {
     public static void main(String[] args) {
@@ -240,5 +241,65 @@ public class Test {
 
         // Verificamos si la pila está vacía
         System.out.println("¿La pila de enteros está vacía?: " + stackIntegers.isEmpty());
+        System.out.println("\n");
+        
+        /*COLA DE TIPO STRING (QUEUEARRAY)*/
+        System.out.println("===================================QUEUEARRAY===================================");
+         Queue<String> colaStrings = new QueueArray<>(5);  // Se declara usando la interfaz y se instancia con QueueArray
+
+        // Se agregan elementos a la cola
+        colaStrings.enqueue("Uno");
+        colaStrings.enqueue("Dos");
+        colaStrings.enqueue("Tres");
+
+        // Se muestra el contenido actual
+        System.out.println("Contenido de la cola de Strings: " + colaStrings);
+
+        // Se consulta el primer y último elemento
+        try {
+            System.out.println("Elemento al frente: " + colaStrings.front());
+            System.out.println("Elemento al final: " + colaStrings.back());
+        } catch (ExceptionIsEmpty e) {
+            System.out.println(e.getMessage());
+        }
+
+        // Se elimina un elemento
+        try {
+            System.out.println("Elemento eliminado: " + colaStrings.dequeue());
+        } catch (ExceptionIsEmpty e) {
+            System.out.println(e.getMessage());
+        }
+
+        // Verifica si la cola está vacía
+        System.out.println("¿La cola de Strings está vacía?: " + colaStrings.isEmpty());
+
+        // ======================== Cola de tipo Integer ========================
+        Queue<Integer> colaEnteros2 = new QueueArray<>(4);  // También usando la interfaz
+
+        // Se agregan números enteros
+        colaEnteros2.enqueue(10);
+        colaEnteros2.enqueue(20);
+        colaEnteros2.enqueue(30);
+
+        // Se muestra el contenido actual
+        System.out.println("Contenido de la cola de enteros: " + colaEnteros2);
+
+        // Se consulta el primer y último número
+        try {
+            System.out.println("Elemento al frente: " + colaEnteros2.front());
+            System.out.println("Elemento al final: " + colaEnteros2.back());
+        } catch (ExceptionIsEmpty e) {
+            System.out.println(e.getMessage());
+        }
+
+        // Se elimina un número
+        try {
+            System.out.println("Elemento eliminado: " + colaEnteros2.dequeue());
+        } catch (ExceptionIsEmpty e) {
+            System.out.println(e.getMessage());
+        }
+
+        // Verifica si la cola está vacía
+        System.out.println("¿La cola de enteros está vacía?: " + colaEnteros2.isEmpty());
     }   
 }
