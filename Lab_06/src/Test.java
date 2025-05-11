@@ -2,9 +2,11 @@
 import actividad1.*;
 import actividad2.*;
 import actividad3.*;
+import ejercicio1.StackLink;
 
 public class Test {
     public static void main(String[] args) {
+
         /*PILAS*/
         System.out.println("===================================PILAS===================================");
         // Crear una pila de enteros con capacidad 5
@@ -179,5 +181,64 @@ public class Test {
 
         // Probar isEmpty después de vaciar
         System.out.println("¿Cola de números vacía?: " + colaNumeros.isEmpty());
+        System.out.println("\n");
+        
+        /*PILA ENLAZADA (STACKLINK)*/
+        System.out.println("===================================STACKLINK===================================");
+        // Test con una pila de tipo String
+        Stack<String> stackStrings = new StackLink<>();  // Creamos una pila para almacenar Strings
+
+        // Realizamos operaciones con Strings
+        stackStrings.push("Elemento 1");
+        stackStrings.push("Elemento 2");
+        stackStrings.push("Elemento 3");
+
+        // Verificamos el contenido de la pila
+        System.out.println("Contenido de la pila de Strings: " + stackStrings);
+
+        // Obtenemos el elemento superior (sin eliminar)
+        try {
+            System.out.println("Elemento en la cima: " + stackStrings.top());
+        } catch (ExceptionIsEmpty e) {
+            System.out.println(e.getMessage());
+        }
+
+        // Eliminamos un elemento
+        try {
+            System.out.println("Elemento eliminado: " + stackStrings.pop());
+        } catch (ExceptionIsEmpty e) {
+            System.out.println(e.getMessage());
+        }
+
+        // Verificamos si la pila está vacía
+        System.out.println("¿La pila de Strings está vacía?: " + stackStrings.isEmpty());
+
+        // Test con una pila de tipo Integer
+        Stack<Integer> stackIntegers = new StackLink<>();  // Creamos una pila para almacenar Integers
+
+        // Realizamos operaciones con enteros
+        stackIntegers.push(10);
+        stackIntegers.push(20);
+        stackIntegers.push(30);
+
+        // Verificamos el contenido de la pila
+        System.out.println("Contenido de la pila de enteros: " + stackIntegers);
+
+        // Obtenemos el elemento superior (sin eliminar)
+        try {
+            System.out.println("Elemento en la cima: " + stackIntegers.top());
+        } catch (ExceptionIsEmpty e) {
+            System.out.println(e.getMessage());
+        }
+
+        // Eliminamos un elemento
+        try {
+            System.out.println("Elemento eliminado: " + stackIntegers.pop());
+        } catch (ExceptionIsEmpty e) {
+            System.out.println(e.getMessage());
+        }
+
+        // Verificamos si la pila está vacía
+        System.out.println("¿La pila de enteros está vacía?: " + stackIntegers.isEmpty());
     }   
 }
