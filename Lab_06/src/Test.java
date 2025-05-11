@@ -1,6 +1,7 @@
 //Importamos las clases del paquete actividad1 y actividad2
 import actividad1.*;
 import actividad2.*;
+import actividad3.*;
 
 public class Test {
     public static void main(String[] args) {
@@ -53,6 +54,7 @@ public class Test {
 
         // Mostrar la pila de cadenas después de la operación pop
         System.out.println("Pila de cadenas de texto después de eliminar un elemento: " + pilaCadenas);
+        System.out.println("\n");
         
         /*COLAS*/
         System.out.println("===================================COLAS===================================");
@@ -110,5 +112,72 @@ public class Test {
         } catch (ExceptionIsEmpty e) {
             System.out.println(e.getMessage());
         }
+        System.out.println("\n");
+        
+        /*COLAS DE PRIORIDAD*/
+        System.out.println("===================================COLAS DE PRIORIDAD===================================");
+         // Crear una cola de prioridad que almacene Strings con prioridad Integer
+        PriorityQueue<String, Integer> cola1 = new PriorityQueueLinkSort<>();
+
+        // Pruebas de enqueue
+        System.out.println("Agregando elementos a la cola de prioridad:");
+        cola1.enqueue("Tarea baja", 1);
+        cola1.enqueue("Tarea media", 5);
+        cola1.enqueue("Tarea urgente", 10);
+        cola1.enqueue("Tarea crítica", 20);
+        cola1.enqueue("Tarea leve", 2);
+
+        // Imprimir el contenido de la cola (debe estar ordenado por prioridad descendente)
+        System.out.println("Contenido de la cola:");
+        System.out.println(cola1);
+
+        // Probar front (debe ser "Tarea crítica")
+        try {
+            System.out.println("Elemento al frente (mayor prioridad): " + cola1.front());
+        } catch (ExceptionIsEmpty e) {
+            System.out.println("Error al obtener el frente: " + e.getMessage());
+        }
+
+        // Probar back (debe ser "Tarea baja")
+        try {
+            System.out.println("Elemento al final (menor prioridad): " + cola1.back());
+        } catch (ExceptionIsEmpty e) {
+            System.out.println("Error al obtener el final: " + e.getMessage());
+        }
+
+        // Probar dequeue (elimina "Tarea crítica")
+        try {
+            System.out.println("Eliminando elemento con mayor prioridad: " + cola1.dequeue());
+        } catch (ExceptionIsEmpty e) {
+            System.out.println("Error al eliminar: " + e.getMessage());
+        }
+
+        // Mostrar el estado de la cola después de eliminar
+        System.out.println("Cola después del dequeue:");
+        System.out.println(cola1);
+
+        // Probar isEmpty (debe ser false)
+        System.out.println("¿La cola está vacía?: " + cola1.isEmpty());
+
+        // Probar cola con enteros
+        PriorityQueue<Integer, Integer> colaNumeros = new PriorityQueueLinkSort<>();
+        colaNumeros.enqueue(100, 3);
+        colaNumeros.enqueue(200, 7);
+        colaNumeros.enqueue(50, 1);
+
+        System.out.println("Cola de números:");
+        System.out.println(colaNumeros);
+
+        // Probar múltiples dequeue
+        try {
+            while (!colaNumeros.isEmpty()) {
+                System.out.println("Eliminado: " + colaNumeros.dequeue());
+            }
+        } catch (ExceptionIsEmpty e) {
+            System.out.println("Error al vaciar la cola de números: " + e.getMessage());
+        }
+
+        // Probar isEmpty después de vaciar
+        System.out.println("¿Cola de números vacía?: " + colaNumeros.isEmpty());
     }   
 }
