@@ -1,9 +1,9 @@
 package actividad1;
 
-class StackArray<E> implements Stack<E> {
+public class StackArray<E> implements Stack<E> {
     private E[] array;
     private int tope;
-
+    @SuppressWarnings("unchecked") // Se suprime porque no es posible crear arreglos genéricos directamente en Java
     public StackArray(int n){
         this.array = (E[])new Object[n];
         tope = -1;
