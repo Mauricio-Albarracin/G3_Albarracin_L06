@@ -1,4 +1,4 @@
-//Importamos las clases del paquete actividad 1
+//Importamos las clases del paquete actividad1 y actividad2
 import actividad1.*;
 import actividad2.*;
 
