@@ -4,7 +4,6 @@ import actividad1.StackArray;
 import actividad1.ExceptionIsEmpty;
 
 public class Test {
-
     public static void main(String[] args) {
         // Crear una pila de enteros con capacidad 5
         Stack<Integer> pilaEnteros = new StackArray<>(5);
@@ -42,16 +41,16 @@ public class Test {
         pilaCadenas.push("AED");
 
         // Mostrar el estado de la pila de cadenas
-        System.out.println("Pila de cadenas después de agregar elementos: " + pilaCadenas);
+        System.out.println("Pila de cadenas de texto después de agregar elementos: " + pilaCadenas);
 
         // Eliminar un elemento de la pila de cadenas
         try {
-            System.out.println("Elemento desapilado de la pila de cadenas: " + pilaCadenas.pop());
+            System.out.println("Elemento desapilado de la pila de cadenas de texto: " + pilaCadenas.pop());
         } catch (ExceptionIsEmpty e) {
             System.out.println(e.getMessage());
         }
 
         // Mostrar la pila de cadenas después de la operación pop
-        System.out.println("Pila de cadenas después de eliminar un elemento: " + pilaCadenas);
+        System.out.println("Pila de cadenas de texto después de eliminar un elemento: " + pilaCadenas);
     }
 }
